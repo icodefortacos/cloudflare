@@ -1,4 +1,5 @@
 import requests
+import getpass
 from requests.structures import CaseInsensitiveDict
 
 print("""
@@ -9,10 +10,12 @@ ECDHE-ECDSA-AES256-GCM-SHA384
 ECDHE-RSA-AES128-GCM-SHA256
 ECDHE-RSA-CHACHA20-POLY1305
 ECDHE-RSA-AES256-GCM-SHA384
+
 """)
 
-zoneid = input("Insert Zone ID: ")
-token = input("Insert Bearer token: ")
+zoneid = input("Enter Zone ID: ")
+print("The token input will be hidden")
+token = getpass.getpass(prompt='Enter Bearer Token: ', stream=None)
 
 url = f"https://api.cloudflare.com/client/v4/zones/{zoneid}/settings/ciphers"
 headers = CaseInsensitiveDict()
