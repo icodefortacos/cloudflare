@@ -24,7 +24,7 @@ headers["Authorization"] = f"Bearer {token}"
 headers["Content-Type"] = "application/json"
 resp = requests.get(url, headers=headers)
 
-print("\nCurrently:")
+print("\nCurrently:") 
 print(resp.text)
 
 payload = {
